@@ -1,3 +1,4 @@
+enable-psremoting
 Set-Item wsman:\\localhost\\Client\\TrustedHosts -Value '40.112.215.123' -Force
 $userName = "azureuser"
 $password = "codincity@123"
