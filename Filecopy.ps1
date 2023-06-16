@@ -1,10 +1,4 @@
-#Set-Item wsman:\\localhost\\Client\\TrustedHosts -Value '40.112.215.123' -Force
-# Define the IP address or hostname to add to the TrustedHosts list
-$trustedHost = "40.112.215.123"
-
-# Modify the TrustedHosts registry key on the D:\ drive
-Set-ItemProperty -Path "Registry::D:\SOFTWARE\Microsoft\Windows\CurrentVersion\WSMAN\Client" -Name "TrustedHosts" -Value $trustedHost -Force
-
+#Set-Item C:\:\\localhost\\Client\\TrustedHosts -Value '40.112.215.123' -Force
 $userName = "azureuser"
 $password = "codincity@123"
 $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
