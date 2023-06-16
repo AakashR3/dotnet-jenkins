@@ -1,4 +1,4 @@
-Set-Item wsman:\\localhost\\Client\\TrustedHosts -Value '40.112.215.123' -Force
+#Set-Item wsman:\\localhost\\Client\\TrustedHosts -Value '40.112.215.123' -Force
 $userName = "azureuser"
 $password = "codincity@123"
 $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
