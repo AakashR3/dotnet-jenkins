@@ -1,3 +1,4 @@
+install gss-ntlmssp
 $userName = "azureuser"
 $password = "codincity@123"
 $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
