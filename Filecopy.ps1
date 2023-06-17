@@ -3,11 +3,9 @@ $password = "codincity@123"
 $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $userName, $secureCred
 
-# Modify the TrustedHosts list
-$trustedHost = "40.112.215.123"
-#Set-Item -Path "wsman:\\localhost\Client\TrustedHosts" -Value $trustedHost -Force
+$remoteHost = "remotehost"
+$session = New-PSSession -ComputerName $remoteHost -Credential $credential -Authentication Negotiate
 
-$session = New-PSSession -ComputerName $trustedHost -Credential $credential
 $sourcePath = "$env:WORKSPACE/publish"
 $destinationPath = "D:/"
 
