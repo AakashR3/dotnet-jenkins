@@ -5,7 +5,7 @@ $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $userName, $secureCred
 
 # Modify the TrustedHosts list
-#$trustedHost = "40.112.215.123"
+$trustedHost = "40.112.215.123"
 #Set-Item -Path "wsman:\\localhost\Client\TrustedHosts" -Value $trustedHost -Force
 
 $session = New-PSSession -ComputerName $trustedHost -Credential $credential
