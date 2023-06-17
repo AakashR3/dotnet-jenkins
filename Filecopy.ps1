@@ -1,5 +1,5 @@
 #install gss-ntlmssp
-apt install iputils-ping
+apt-get install iputils-ping
 $userName = "azureuser"
 $password = "codincity@123"
 $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
