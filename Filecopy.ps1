@@ -1,11 +1,10 @@
-winrm s winrm/config/client '@{TrustedHosts="RemoteComputer"}'
-
 $userName = "azureuser"
 $password = "codincity@123"
 $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $userName, $secureCred
 
-$remoteHost = "remotehost"
+$remoteHost = "40.112.215.123"
+
 $session = New-PSSession -ComputerName $remoteHost -Credential $credential -Authentication Negotiate
 
 $sourcePath = "$env:WORKSPACE/publish"
