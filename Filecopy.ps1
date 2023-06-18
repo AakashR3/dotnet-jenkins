@@ -2,14 +2,9 @@ $userName = "azureuser"
 $password = "codincity@123"
 $secureCred = ConvertTo-SecureString $password -AsPlainText -Force
 $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $userName, $secureCred
-$remoteHost = "40.112.215.123"
-$session = New-PSSession -ComputerName $remoteHost -Credential $credential -Authentication Negotiate
-$sourcePath = "$env:WORKSPACE/publish"
-$destinationPath = "D:/"
-
-Invoke-Command -Session $session -ArgumentList $sourcePath, $destinationPath -ErrorVariable err_return -ScriptBlock {
-    # Copy the item from source to destination
-    Copy-Item -Path $args[0] -Destination $args[1]
-}
-
+$trustedHost = "40.112.215.123"
+$session = New-PSSession -ComputerName $trustedHost -Credential $credential -Authentication Negotiate
+$sourcePath = "/build"
+$destinationPath = "C:\Users\azureuser\Desktop\"
+Copy-Item -Path $sourcePath -Destination $destinationPath -recurse -Force -ToSession $session
 Remove-PSSession -Session $session
